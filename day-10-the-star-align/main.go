@@ -139,7 +139,7 @@ func main() {
 
 	/*
 		I guessed the right grid size from the 3rd attempt using binary search approach :)
-		More elaborated solution use some of this ideas:
+		More elaborated solution may use some of this ideas:
 			a) some interactive rewinding features (e.g., going forward/backward in time on
 			   the left/right arrow key press and redrawing the grid)
 			b) running a text detection algorithm on each point set (e.g. OpenCV's EAST or Google Text Recognition API)
