@@ -238,11 +238,11 @@ auto locateLastCart(const Tracks& tracks, Carts carts) -> std::optional<Location
             auto [location, cart] = moveCart(it->first, it->second, tracks);
             if (auto found = carts.find(location); found != carts.end()) {
                 it = carts.erase(found);
-            } else if (!movedCarts.erase(location)) {
-                movedCarts[location] = cart;
+            } else if (movedCarts.erase(location)) {
                 ++it;
             } else {
                 ++it;
+                movedCarts[location] = cart;
             }
         }
 
