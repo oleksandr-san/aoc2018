@@ -41,7 +41,6 @@ def select_best_step(b, e, map):
             continue
         if min_dist is None or min_dist > dist:
             best_step, min_dist = a, dist
-    #print('\n'.join(''.join(str(i) if i >= 0 else '#' for i in line) for line in dist_map))
     return best_step, min_dist
 
 def select_best_path(pos, targets, map):
@@ -184,49 +183,6 @@ def parse_map(input, elf_power=3):
     return [[create_cell(c) for c in line] for line in input.splitlines() if len(line) > 0]
 
 input = """
-#########
-#G..G..G#
-#.......#
-#.......#
-#G..E..G#
-#.......#
-#.......#
-#G..G..G#
-#########"""
-
-input = """
-#######
-#.G...#
-#...EG#
-#.#.#G#
-#..G#E#
-#.....#
-#######
-"""
-
-# input = """
-# #######
-# #G..#E#
-# #E#E.E#
-# #G.##.#
-# #...#E#
-# #...E.#
-# #######
-# """
-
-# input = """
-# #########
-# #G......#
-# #.E.#...#
-# #..##..G#
-# #...##..#
-# #...#...#
-# #.G...G.#
-# #.....G.#
-# #########
-# """
-
-input = """
 ################################
 ###########...G...#.##..########
 ###########...#..G#..G...#######
@@ -260,26 +216,12 @@ input = """
 ####..##########################
 ################################
 """
-
-# map = parse_map(input)
-
-# print(select_enemies((4, 4), map))
-# print(select_enemy_to_attack((4, 4), map))
-# print(select_best_path((4, 4), [(1, 1), (4, 1), (7, 1), (1, 4), (7, 4), (1, 7), (4, 7), (7, 7)], map))
-# print(select_best_step((4, 4), (4, 1), map))
-
-# print(select_action((4, 4), map))
-# print(select_action((4, 1), map))
-
-# apply_action((4, 4), select_action((4, 4), map), map)
-# print_map(map)
-
 map = parse_map(input, 20)
 last_round, success = run_game(map, True)
 if success:
-    hitpoints = calculate_hitpoints(map)
     print("Final state")
     print_map(map)
+    hitpoints = calculate_hitpoints(map)
     print('\nFull rounds: {}, hitpoints: {}, outcome: {}'.format(last_round-1, hitpoints, (last_round-1)*hitpoints))
 else:
     print('\nSome elf died at {} turn'.format(last_round))
