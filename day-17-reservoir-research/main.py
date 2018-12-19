@@ -42,9 +42,9 @@ def fill_map(map, startX=500):
     while levels:
         level = levels[-1]
         curr = level[0]
-        map.add(curr, '|')
 
         if curr[1] >= map.maxY or map.get(down(curr)) == '|':
+            map.add(curr, '|')
             levels.pop()
 
         elif map.get(down(curr)) is None:
