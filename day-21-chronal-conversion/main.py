@@ -15,7 +15,7 @@ def f(n=0):
         else:
             r5 = int(r5 / 256)
 
-def min_f(n=0, iters=1_000_000):
+def min_f(f, n=0, iters=1_000_000):
     min_val, cnt = None, 0
     for val in f(n):
         if not min_val or min_val > val:
@@ -39,4 +39,4 @@ for val in f():
 
 print('Part 1:', first) # 15883666
 print('Part 2:', last) # 3253305
-print('Part 2?:', min_f()) # 762
+print('Part 2?:', min_f(f)) # 762
