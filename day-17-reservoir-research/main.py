@@ -77,8 +77,7 @@ def fill_map(map, startX=500):
                     continue
                 rbound, rclosed = nrbound, nrclosed
 
-            value = '~' if lclosed and rclosed else '|'
-            map.add(((lbound[0], rbound[0]), (lbound[1], rbound[1])), value)
+            map.add(tuple(zip(lbound, rbound)), '~' if lclosed and rclosed else '|')
             levels.pop()
 
 def parse_ranges(input):
